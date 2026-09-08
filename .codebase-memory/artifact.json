@@ -1,0 +1,11 @@
+{
+    "schema_version": 2,
+    "commit": "9315f3784defdbf1793cfd14e539e2a15ade632c",
+    "indexed_at": "2026-09-08T07:16:35Z",
+    "project": "a2b-games",
+    "nodes": 8,
+    "edges": 7,
+    "original_size": 1179648,
+    "compressed_size": 2748,
+    "compression_level": 9
+}
