@@ -5,3 +5,11 @@ venv/
 node_modules/
 .env
 .DS_Store
+
+# Downloaded source archives (272MB) and their unpacked copies. These are
+# public re-downloadable government datasets, and data/extracted/ is just
+# data/raw/ unzipped. Individual files reach 66MB, past GitHub's 50MB warning
+# threshold. data/DATA_SOURCES.md carries the exact download URLs, and
+# pipeline/build_dataset.py regenerates web/data.json from them.
+data/raw/
+data/extracted/

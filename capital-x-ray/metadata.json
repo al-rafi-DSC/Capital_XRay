@@ -1,0 +1,6 @@
+{
+  "name": "Capital X-Ray",
+  "description": "Fintech intelligence platform identifying capital allocation gaps across Lombardy provinces and business sectors.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+/* Light theme is the only theme: pin color-scheme so native dropdowns,
+   scrollbars and form controls stay light even when the OS is in dark mode. */
+:root {
+  color-scheme: light;
+}
+
+html,
+body {
+  background-color: #f8fafc; /* slate-50, matches the app shell */
+  color: #0f172a; /* slate-900 */
+}
