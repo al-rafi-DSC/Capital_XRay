@@ -1,20 +1,30 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Capital X-Ray webapp
 
-# Run and deploy your AI Studio app
+The Next.js frontend and Gemini explanation endpoint for Capital X-Ray.
 
-This contains everything you need to run your app locally.
+See the [project README](../README.md) for the product overview, dataset, scoring formulas, regression methodology, pipeline setup and known limitations.
 
-View your app in AI Studio: https://ai.studio/apps/90fb9a5b-58e0-4e59-8a48-67b0adbebcb3
+## Run locally
 
-## Run Locally
+With Node.js and npm installed, run these commands from this directory:
 
-**Prerequisites:**  Node.js
+```sh
+npm ci
+npm run dev
+```
 
+Open the local address printed in the terminal, normally http://localhost:3000. To use another port, run `npm run dev -- --port 4300`.
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+The generated data and model modules in `lib/` are included. To enable live Gemini explanations, create or update `.env.local` with your own `GEMINI_API_KEY` and restart the server. The app uses template explanations if the API is unavailable.
+
+## Build and check
+
+```sh
+npm run lint
+npm run build
+npm run start
+```
+
+Lint is a separate check because the current Next.js configuration skips ESLint during builds. The main app needs a Node.js server for `/api/explain`.
+
+Regenerate `lib/capital-data.ts` and `lib/capital-model.ts` using the Python scripts described in the root README.
