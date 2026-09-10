@@ -6,6 +6,22 @@ Capital X-Ray is a fintech hackathon prototype that combines Banca d’Italia le
 
 The app includes an interactive comparison grid, an expected-credit regression benchmark, Gemini explanations and a hypothetical €1 million allocation simulator. Precomputed data and model outputs are included, so you can run the dashboard without rebuilding the Python pipeline.
 
+## Contents
+
+- [Features and data coverage](#what-you-can-explore)
+- [Quick start](#quick-start)
+- [Demo walkthrough](#demo-walkthrough)
+- [Architecture](#architecture)
+- [Dashboard metrics](#how-the-dashboard-scores-work)
+- [Expected-credit benchmark](#expected-credit-benchmark)
+- [Gemini explanations](#gemini-explanations)
+- [Allocation simulator](#allocation-simulator)
+- [Rebuild the data and model](#rebuild-the-data-and-model)
+- [Repository layout](#repository-layout)
+- [Checks and troubleshooting](#checks-and-troubleshooting)
+- [Current limitations](#current-limitations)
+- [Shared codebase memory](#shared-codebase-memory)
+
 ## What you can explore
 
 - **Capital X-Ray Matrix:** filter, search and sort province–sector cards by economic momentum, financing support or their difference.
@@ -30,6 +46,13 @@ The five provinces were the scope chosen in the hackathon plan. The project does
 ### Run the main app
 
 Install **Node.js and npm**. Node.js 22 or newer is a suitable choice for the versions recorded in the [npm lockfile](capital-x-ray/package-lock.json). Python and the original data downloads are optional for this path.
+
+For a new checkout, clone the repository with Git:
+
+```sh
+git clone https://github.com/al-rafi-DSC/Capital_XRay.git
+cd Capital_XRay
+```
 
 From the repository root:
 
@@ -81,6 +104,16 @@ The main app needs a Node.js server for `/api/explain`. It imports the precomput
 Open [web/capital-x-ray.html](web/capital-x-ray.html) in a browser. Its data, styles and scripts are embedded in the file.
 
 The offline version has the grid, template explanations and simulator. The expected-credit model panel and live Gemini calls are available in the main Next.js app.
+
+## Demo walkthrough
+
+1. **Start with the overview.** Explain the five-province, three-sector scope and historical 2015–2020 period.
+2. **Explore the matrix.** Keep the filters on All and sort by Most Underfinanced. Select **Brescia / Costruzioni** to examine the included dataset’s **−27-point** weighted gap.
+3. **Read the explanation.** Scroll to **Why is this highlighted?** and compare the narrative with the six sub-scores. The source label distinguishes **GEMINI LIVE** from **FALLBACK**.
+4. **Compare the statistical benchmark.** In **Expected-Credit Benchmark**, select **Varese / Costruzioni**. The included model reports a six-year learned gap of **−27.1%** and **z = −1.91**. This is a separate measure from the weighted gap on the matrix.
+5. **Change the allocation objective.** Switch between **Underfinanced Areas**, **Growth** and **Diversification** to see the hypothetical portfolio change. Donut and Bar show the same allocation in different formats.
+
+Selecting a cell updates its detailed analysis, but you may need to scroll to the relevant section. The benchmark and simulator use precomputed data, so you can continue exploring them while a Gemini response is pending.
 
 ## Architecture
 
